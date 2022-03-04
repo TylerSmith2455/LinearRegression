@@ -13,7 +13,11 @@ class LinearRegression:
         
         for i in range(self.steps):
             # Calulate gradient and update theta values
-            gradients = (1/len(data)) * np.dot(data.transpose(), self.predict(data, values))
+            gradients = (1/len(data)) * np.dot(data.transpose(), self.predict(data, values)) 
+
+            # Bonus: L2 Norm Regularization, lambda value of .1
+            #gradients = (1/len(data)) * (np.dot(data.transpose(), self.predict(data, values)) + .1*self.thetas)
+
             self.thetas -= self.alpha*gradients
             
             # Calculate loss, If loss is low enough stop

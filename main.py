@@ -67,8 +67,8 @@ def main():
     wineRegression = LinearRegression(.001,10000)
     wineRegression.fit(wine, wineValues, 1.5)
 
-    print("Wine Dataset")
-    print("Mean Squared Error: ", MSE(wineRegression, wine, wineValues), "\n")
+    print(" Wine Dataset")
+    print("Mean Squared Error: ", MSE(wineRegression, wine, wineValues))
     print("Weight values: ", *wineRegression.thetas, sep=' ')
 
     # Read in synthetic1 data and normalize it
@@ -77,7 +77,7 @@ def main():
     synthetic1_values = synthetic1[:, -1]
     synthetic1 = np.delete(synthetic1, -1, 1)
     synthetic1 = np.insert(synthetic1, 0, 1, axis=1)
-    print("Synthetic-1 Dataset")
+    print('\n', "Synthetic-1 Dataset")
 
     # Synthetic 1 2nd order ploynomial
     synthetic1_2 = normalizeSynthetic(synthetic1, 2)
@@ -86,7 +86,7 @@ def main():
     regression.fit(synthetic1_2, synthetic1_values, 35)
     print("2nd Order Polynomial MSE: ", MSE(regression, synthetic1_2, synthetic1_values))
     print("Weight values: ", *regression.thetas, sep=' ')
-    visualizeModels(synthetic1_2, synthetic1_values, regression, 2, "Synthetic-1")
+    #visualizeModels(synthetic1_2, synthetic1_values, regression, 2, "Synthetic-1")
 
     # Synthetic 1 3rd order polynomial
     synthetic1_3 = normalizeSynthetic(synthetic1, 3)
@@ -94,15 +94,15 @@ def main():
     regression.fit(synthetic1_3, synthetic1_values, 10)
     print("3rd Order Polynomial MSE: ", MSE(regression, synthetic1_3, synthetic1_values))
     print("Weight values: ", *regression.thetas, sep=' ')
-    visualizeModels(synthetic1_3, synthetic1_values, regression, 3, "Synthetic-1")
+    #visualizeModels(synthetic1_3, synthetic1_values, regression, 3, "Synthetic-1")
 
     # Synthetic 1 5th order polynomial
     synthetic1_5 = normalizeSynthetic(synthetic1, 5)
     regression = LinearRegression(1,100000)
     regression.fit(synthetic1_5, synthetic1_values, 10)
-    print("5th Order Polynomial MSE: ", MSE(regression, synthetic1_5, synthetic1_values), "\n")
+    print("5th Order Polynomial MSE: ", MSE(regression, synthetic1_5, synthetic1_values))
     print("Weight values: ", *regression.thetas, sep=' ')
-    visualizeModels(synthetic1_5, synthetic1_values, regression, 5, "Synthetic-1")
+    #visualizeModels(synthetic1_5, synthetic1_values, regression, 5, "Synthetic-1")
 
     # Read in synthetic2 data and normalize it
     synthetic2 = pd.read_csv('synthetic-2.csv', header = None)
@@ -110,7 +110,7 @@ def main():
     synthetic2_values = synthetic2[:, -1]
     synthetic2 = np.delete(synthetic2, -1, 1)
     synthetic2 = np.insert(synthetic2, 0, 1, axis=1)
-    print("Synthetic-2 Dataset")
+    print('\n', "Synthetic-2 Dataset")
 
     # Synthetic 2 2nd order ploynomial
     synthetic2_2 = normalizeSynthetic(synthetic2, 2)
@@ -118,7 +118,7 @@ def main():
     regression.fit(synthetic2_2, synthetic2_values, .5)
     print("2nd Order Polynomial MSE: ", MSE(regression, synthetic2_2, synthetic2_values))
     print("Weight values: ", *regression.thetas, sep=' ')
-    visualizeModels(synthetic2_2, synthetic2_values, regression, 2, "Synthetic-2")
+    #visualizeModels(synthetic2_2, synthetic2_values, regression, 2, "Synthetic-2")
 
     # Synthetic 2 3rd order polynomial
     synthetic2_3 = normalizeSynthetic(synthetic2, 3)
@@ -126,15 +126,15 @@ def main():
     regression.fit(synthetic2_3, synthetic2_values, .5)
     print("3rd Order Polynomial MSE: ", MSE(regression, synthetic2_3, synthetic2_values))
     print("Weight values: ", *regression.thetas, sep=' ')
-    visualizeModels(synthetic2_3, synthetic2_values, regression, 3, "Synthetic-2")
+    #visualizeModels(synthetic2_3, synthetic2_values, regression, 3, "Synthetic-2")
 
     # Synthetic 2 5th order polynomial
     synthetic2_5 = normalizeSynthetic(synthetic2, 5)
     regression = LinearRegression(.01,100000)
     regression.fit(synthetic2_5, synthetic2_values, .5)
-    print("5th Order Polynomial MSE: ", MSE(regression, synthetic2_5, synthetic2_values), "\n")
+    print("5th Order Polynomial MSE: ", MSE(regression, synthetic2_5, synthetic2_values))
     print("Weight values: ", *regression.thetas, sep=' ')
-    visualizeModels(synthetic2_5, synthetic2_values, regression, 5, "Synthetic-2")
+    #visualizeModels(synthetic2_5, synthetic2_values, regression, 5, "Synthetic-2")
 
 
 if __name__ == "__main__":
